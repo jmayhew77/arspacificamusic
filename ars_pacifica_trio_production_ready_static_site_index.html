@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ars Pacifica Trio — Violin • Cello • Piano</title>
+  <meta name="description" content="Ars Pacifica Trio — a violin, cello, and piano ensemble presenting compelling chamber music across the West Coast and beyond." />
+  <meta name="author" content="Ars Pacifica Trio" />
+  
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Ars Pacifica Trio" />
+  <meta property="og:description" content="Violin • Cello • Piano — Concerts, recordings, and educational outreach." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://arspacificamusic.com/" />
+  <meta property="og:image" content="https://arspacificamusic.com/assets/social/og-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons (replace with your real icons when available) -->
+  <link rel="icon" href="/assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg: #0b0b0d;          /* near-black */
+      --panel: #0f1116;       /* dark panel */
+      --text: #f2f2f7;        /* off-white */
+      --muted: #c9cad3;       /* light gray */
+      --brand: #c7a97b;       /* refined gold */
+      --brand-2: #7bb2c7;     /* pacific teal */
+      --accent: #efefef;      /* subtle card border */
+      --danger: #dd6b6b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius-xl: 18px; 
+      --radius-lg: 14px; 
+      --radius-md: 12px; 
+      --radius-sm: 10px;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:0 24px}
+
+    /* Skip link */
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:var(--brand);color:#111;padding:8px 12px;border-radius:8px;z-index:9999}
+
+    /* HEADER / NAV */
+    header.site-header{position:sticky;top:0;z-index:90;background:rgba(11,11,13,.4);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:14px;font-weight:700;letter-spacing:.5px}
+    .logo-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#111;font-weight:800}
+    .nav-links{display:flex;gap:22px}
+    .nav-links a{padding:8px 10px;border-radius:10px;color:var(--muted)}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,.06)}
+    .cta{padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#111;font-weight:700;box-shadow:var(--shadow)}
+    .menu-toggle{display:none}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:72px 0}
+    .hero h1{font-family:"Playfair Display",serif;font-weight:600;font-size: clamp(32px, 4.2vw, 64px);line-height:1.1;margin:0 0 10px}
+    .hero p.sub{color:var(--muted);margin:0 0 24px;font-size: clamp(16px, 1.4vw, 18px)}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#111;font-weight:700;border:none}
+    .btn.secondary:hover{background:rgba(255,255,255,.06)}
+    .press-badges{display:flex;gap:18px;align-items:center;margin-top:22px;flex-wrap:wrap;color:var(--muted)}
+    .press-badges img{height:28px;opacity:.75}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);padding:18px;border-radius:var(--radius-lg)}
+    .hero-quote{font-family:"Playfair Display",serif;color:#eaeaea;font-size:20px;line-height:1.5;margin:0}
+    .quote-src{color:var(--brand);font-weight:600;margin-top:8px}
+    .hero-media{border-radius:var(--radius-xl);overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
+
+    /* SECTION WRAPPERS */
+    section{padding:70px 0;border-top:1px solid rgba(255,255,255,.06)}
+    section.alt{background:linear-gradient(180deg,var(--panel),#0c0d13)}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px}
+    .section-head h2{font-family:"Playfair Display",serif;font-size: clamp(26px, 3vw, 40px);margin:0}
+    .section-head p{margin:0;color:var(--muted)}
+
+    /* NEWS */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);overflow:hidden;transition:transform .2s ease}
+    .card:hover{transform:translateY(-4px)}
+    .card img{aspect-ratio:16/9;object-fit:cover}
+    .card .pad{padding:16px}
+    .card h3{margin:2px 0 8px;font-size:20px}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;font-size:12px;color:var(--muted)}
+
+    /* ABOUT */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .about .bio{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:20px}
+    .about h3{margin-top:0}
+
+    /* CONCERTS */
+    .concerts{display:grid;grid-template-columns:1.3fr .7fr;gap:24px}
+    .concert-list{display:grid;gap:12px}
+    .concert{display:flex;gap:14px;align-items:center;padding:14px;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015))}
+    .date{min-width:86px;text-align:center;border-right:1px solid rgba(255,255,255,.08);padding-right:14px}
+    .date .d{font-size:26px;font-weight:800;line-height:1}
+    .date .m{color:var(--brand);font-weight:700}
+    .concert .meta{display:flex;flex-direction:column}
+    .concert .meta .where{color:var(--muted)}
+    .tickets{margin-left:auto}
+
+    /* LISTEN */
+    .listen-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .embed{position:relative;padding-top:56%;border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+    .embed iframe{position:absolute;inset:0;width:100%;height:100%}
+    .audio{display:flex;flex-direction:column;gap:12px}
+    .track{padding:14px;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015))}
+
+    /* MEDIA */
+    .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .media-grid a{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:100}
+    .lightbox img{max-width:min(92vw,1200px);max-height:88vh;border-radius:14px}
+    .lightbox.show{display:flex}
+
+    /* PRESS */
+    .press{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .quote{border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:18px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015))}
+    .quote p{font-family:"Playfair Display",serif;font-size:20px;line-height:1.5;margin:0}
+    .quote .source{margin-top:8px;color:var(--brand)}
+
+    /* CONTACT */
+    form{display:grid;gap:12px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:#0e0f13;color:var(--text)}
+    input:focus,textarea:focus{outline:2px solid var(--brand-2)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    /* FOOTER */
+    footer{padding:40px 0;background:#0a0b10;border-top:1px solid rgba(255,255,255,.06)}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+    .social{display:flex;gap:12px;flex-wrap:wrap}
+    .small{color:var(--muted);font-size:14px}
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr;}
+      .about,.listen-grid,.press,.concerts{grid-template-columns:1fr}
+      .media-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 680px){
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex;border:1px solid rgba(255,255,255,.15);padding:10px 12px;border-radius:10px;color:var(--muted)}
+      .cards{grid-template-columns:1fr}
+      .media-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header / Nav -->
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Ars Pacifica Trio home">
+        <span class="logo-mark">AP</span>
+        <span>Ars Pacifica Trio</span>
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="menu" id="menuBtn">Menu</button>
+        <div class="nav-links" id="menu">
+          <a href="#news" class="active">News</a>
+          <a href="#about">About</a>
+          <a href="#concerts">Concerts</a>
+          <a href="#listen">Listen</a>
+          <a href="#media">Media</a>
+          <a href="#press">Press</a>
+          <a href="#contact" class="cta">Book Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero container" id="home" aria-label="Hero">
+      <div class="hero-inner">
+        <div>
+          <h1>Chamber music with West Coast soul.</h1>
+          <p class="sub">Ars Pacifica Trio (violin • cello • piano) crafts vivid programs that bridge classical tradition and new voices—across the Pacific and beyond.</p>
+          <div class="btn-row">
+            <a class="btn primary" href="#listen">▶︎ Listen now</a>
+            <a class="btn secondary" href="#concerts">See concerts</a>
+            <a class="btn secondary" href="#contact">Press kit</a>
+          </div>
+          <div class="press-badges" aria-label="Partners and mentions">
+            <span class="pill">Featured</span>
+            <img src="/assets/press/gramophone.svg" alt="Gramophone" />
+            <img src="/assets/press/strad.svg" alt="The Strad" />
+            <img src="/assets/press/npr.svg" alt="NPR" />
+          </div>
+        </div>
+        <div>
+          <div class="hero-media">
+            <!-- Replace src with your promo video link -->
+            <div class="embed" aria-label="Promo video">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ars Pacifica Trio — promo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="hero-card" style="margin-top:12px">
+              <p class="hero-quote">“Playing of poise and fire in equal measure — chamber music that shimmers with narrative clarity.”</p>
+              <div class="quote-src">— California Arts Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>News</h2>
+          <p>Latest announcements, premieres, and features</p>
+        </div>
+        <div class="cards" role="list">
+          <article class="card" role="listitem">
+            <img src="/assets/news/news-1.jpg" alt="Stage photo from San Francisco recital" loading="lazy" />
+            <div class="pad">
+              <div class="pill">Aug 2025</div>
+              <h3>Debut West Coast tour announced</h3>
+              <p class="small">San Francisco • Portland • Seattle — Full dates below.</p>
+            </div>
+          </article>
+          <article class="card" role="listitem">
+            <img src="/assets/news/news-2.jpg" alt="Composer portrait — premiere program" loading="lazy" />
+            <div class="pad">
+              <div class="pill">Aug 2025</div>
+              <h3>World premiere: <em>Pacific Tides</em> by Lina Torres</h3>
+              <p class="small">A new commission inspired by ocean light and fog.</p>
+            </div>
+          </article>
+          <article class="card" role="listitem">
+            <img src="/assets/news/news-3.jpg" alt="Recording session in studio" loading="lazy" />
+            <div class="pad">
+              <div class="pill">Jul 2025</div>
+              <h3>In studio: Ravel & Shostakovich</h3>
+              <p class="small">Selected tracks coming soon to all platforms.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>This is Ars Pacifica</h2>
+          <p>Biography, vision, and ensemble members</p>
+        </div>
+        <div class="about">
+          <div class="bio">
+            <h3>Biography</h3>
+            <p>Ars Pacifica Trio unites three acclaimed West Coast musicians — violin, cello, and piano — in vivid story‑forward programs. The ensemble’s name honors the Pacific’s breadth and the dialogue between classical heritage and contemporary voices. Recent highlights include festival invitations, residencies, and community workshops across Northern California.</p>
+            <p>Committed to education, Ars Pacifica leads masterclasses and interactive concerts that open the door to chamber music for new audiences, students, and veterans communities.</p>
+          </div>
+          <div class="bio">
+            <h3>Members</h3>
+            <p><strong>Violin:</strong> Add your short bio here — awards, orchestras, festivals.</p>
+            <p><strong>Cello:</strong> Add your short bio here — notable teachers, ensembles, competitions.</p>
+            <p><strong>Piano:</strong> Add your short bio here — concerto work, residencies, commissions.</p>
+            <p class="small">Full press biographies available in the EPK below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCERTS -->
+    <section id="concerts" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Concerts</h2>
+          <p>Upcoming dates and recent highlights</p>
+        </div>
+        <div class="concerts">
+          <div>
+            <div class="concert-list" role="list">
+              <div class="concert" role="listitem">
+                <div class="date" aria-label="Date">
+                  <div class="d">14</div>
+                  <div class="m">SEP</div>
+                </div>
+                <div class="meta">
+                  <div><strong>San Francisco Recital</strong> — Ravel, Shostakovich, Torres (premiere)</div>
+                  <div class="where">Old First Concerts · 7:30 PM</div>
+                </div>
+                <a class="btn secondary tickets" href="#" aria-label="Tickets for San Francisco Recital">Tickets</a>
+              </div>
+              <div class="concert" role="listitem">
+                <div class="date"><div class="d">20</div><div class="m">SEP</div></div>
+                <div class="meta">
+                  <div><strong>Portland Chamber Music</strong> — Beethoven Op.70/2, Schumann Op.63</div>
+                  <div class="where">The Old Church · 7:00 PM</div>
+                </div>
+                <a class="btn secondary tickets" href="#">Tickets</a>
+              </div>
+              <div class="concert" role="listitem">
+                <div class="date"><div class="d">22</div><div class="m">SEP</div></div>
+                <div class="meta">
+                  <div><strong>Seattle Debut</strong> — Ravel Trio, Caroline Shaw</div>
+                  <div class="where">Benaroya Hall — Recital Studio · 7:30 PM</div>
+                </div>
+                <a class="btn secondary tickets" href="#">Tickets</a>
+              </div>
+            </div>
+          </div>
+          <aside>
+            <div class="hero-card">
+              <h3 style="margin:6px 0 10px">Presenter Info</h3>
+              <p class="small">For booking and residencies, download our Electronic Press Kit (EPK) with bios, photos, stage plot, and program offerings.</p>
+              <a class="btn primary" href="/assets/epk/ArsPacificaTrio-EPK.pdf">Download EPK (PDF)</a>
+            </div>
+            <div class="hero-card" style="margin-top:14px">
+              <h3 style="margin:6px 0 10px">Programs 2025–26</h3>
+              <ul class="small" style="margin:0 0 0 18px">
+                <li><strong>Pacific Light</strong> — Ravel · Shaw · Torres</li>
+                <li><strong>Old World / New Wave</strong> — Beethoven · Schumann · Commission</li>
+                <li><strong>Coastal Currents</strong> — Debussy · Glass · New Work</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTEN -->
+    <section id="listen">
+      <div class="container">
+        <div class="section-head">
+          <h2>Listen</h2>
+          <p>Selected video and audio</p>
+        </div>
+        <div class="listen-grid">
+          <div class="embed" aria-label="Featured performance">
+            <!-- Replace with your own video link -->
+            <iframe src="https://www.youtube.com/embed/5NV6Rdv1a3I" title="Featured performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="audio">
+            <div class="track">
+              <strong>Ravel: Piano Trio in A minor — Modéré (excerpt)</strong>
+              <audio src="/assets/audio/ravel_modere.mp3" controls preload="none"></audio>
+            </div>
+            <div class="track">
+              <strong>Shostakovich: Piano Trio No.2 — Allegro con brio (excerpt)</strong>
+              <audio src="/assets/audio/shostakovich_allegro.mp3" controls preload="none"></audio>
+            </div>
+            <div class="track">
+              <strong>Lina Torres: Pacific Tides — II. Sea Glass (excerpt)</strong>
+              <audio src="/assets/audio/torres_seaglass.mp3" controls preload="none"></audio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Media</h2>
+          <p>Photos for press and presenters</p>
+        </div>
+        <div class="media-grid" id="gallery" role="list">
+          <a href="/assets/photos/trio-1.jpg" role="listitem"><img src="/assets/photos/trio-1_sm.jpg" alt="Ars Pacifica Trio promo photo" loading="lazy" /></a>
+          <a href="/assets/photos/trio-2.jpg" role="listitem"><img src="/assets/photos/trio-2_sm.jpg" alt="Ars Pacifica Trio on stage" loading="lazy" /></a>
+          <a href="/assets/photos/trio-3.jpg" role="listitem"><img src="/assets/photos/trio-3_sm.jpg" alt="Ars Pacifica Trio rehearsal" loading="lazy" /></a>
+          <a href="/assets/photos/violin.jpg" role="listitem"><img src="/assets/photos/violin_sm.jpg" alt="Violinist portrait" loading="lazy" /></a>
+          <a href="/assets/photos/cello.jpg" role="listitem"><img src="/assets/photos/cello_sm.jpg" alt="Cellist portrait" loading="lazy" /></a>
+          <a href="/assets/photos/piano.jpg" role="listitem"><img src="/assets/photos/piano_sm.jpg" alt="Pianist portrait" loading="lazy" /></a>
+        </div>
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+          <img src="" alt="Expanded media" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS -->
+    <section id="press">
+      <div class="container">
+        <div class="section-head">
+          <h2>Press</h2>
+          <p>Selected quotes</p>
+        </div>
+        <div class="press" id="pressSlider">
+          <blockquote class="quote">
+            <p>“Technically assured and interpretively bold — a trio with something urgent to say.”</p>
+            <div class="source">— San Francisco Classical Voice</div>
+          </blockquote>
+          <blockquote class="quote">
+            <p>“A finely balanced sound where narrative and color lead the way.”</p>
+            <div class="source">— Portland Tribune</div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact & Booking</h2>
+          <p>For engagements, residencies, and press</p>
+        </div>
+        <div class="about">
+          <div class="bio">
+            <h3>Booking & General</h3>
+            <p>Email us at <a href="mailto:booking@arspacificamusic.com">booking@arspacificamusic.com</a> or use the form.</p>
+            <form action="https://formspree.io/f/your-id" method="POST">
+              <div class="split">
+                <div><label class="small" for="name">Name</label><input id="name" name="name" required /></div>
+                <div><label class="small" for="email">Email</label><input id="email" name="email" type="email" required /></div>
+              </div>
+              <div><label class="small" for="org">Organization</label><input id="org" name="organization" /></div>
+              <div><label class="small" for="msg">Message</label><textarea id="msg" name="message" rows="5" required></textarea></div>
+              <button class="btn primary" type="submit">Send message</button>
+            </form>
+          </div>
+          <div class="bio">
+            <h3>Newsletter</h3>
+            <p class="small">Concert announcements and recording news — a few times per season.</p>
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+              <div class="split">
+                <input name="first_name" placeholder="First name" />
+                <input name="last_name" placeholder="Last name" />
+              </div>
+              <input name="email" type="email" placeholder="Email address" required />
+              <button class="btn secondary" type="submit">Subscribe</button>
+            </form>
+            <div class="hero-card" style="margin-top:14px">
+              <h3 style="margin:6px 0 8px">Electronic Press Kit</h3>
+              <p class="small">Download hi‑res photos, bios, stage plot, repertoire list, and tech rider.</p>
+              <a class="btn primary" href="/assets/epk/ArsPacificaTrio-EPK.zip">Download Full EPK (ZIP)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:8px"><span class="logo-mark">AP</span> Ars Pacifica Trio</div>
+        <p class="small">© <span id="year"></span> Ars Pacifica Trio. All rights reserved.</p>
+      </div>
+      <div>
+        <div class="small">Contact</div>
+        <p class="small"><a href="mailto:info@arspacificamusic.com">info@arspacificamusic.com</a><br>Press: <a href="mailto:press@arspacificamusic.com">press@arspacificamusic.com</a></p>
+        <div class="social">
+          <a class="pill" href="#" aria-label="Instagram">Instagram</a>
+          <a class="pill" href="#" aria-label="YouTube">YouTube</a>
+          <a class="pill" href="#" aria-label="Spotify">Spotify</a>
+          <a class="pill" href="#" aria-label="Apple Music">Apple Music</a>
+        </div>
+      </div>
+      <div>
+        <div class="small">Made with ♥ in California</div>
+        <p class="small">Site by Ars Pacifica Trio. Hosted on GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD Schema: MusicGroup + Events -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Ars Pacifica Trio",
+    "url": "https://arspacificamusic.com/",
+    "sameAs": [
+      "https://instagram.com/arspacificamusic",
+      "https://www.youtube.com/@arspacificamusic"
+    ],
+    "genre": ["Classical", "Chamber music"],
+    "member": [
+      {"@type":"Person","name":"Violinist Name"},
+      {"@type":"Person","name":"Cellist Name"},
+      {"@type":"Person","name":"Pianist Name"}
+    ],
+    "event": [
+      {
+        "@type": "MusicEvent",
+        "name": "San Francisco Recital",
+        "startDate": "2025-09-14T19:30:00-07:00",
+        "location": {"@type":"Place","name":"Old First Concerts","address":"1751 Sacramento St, San Francisco, CA"}
+      },
+      {
+        "@type": "MusicEvent",
+        "name": "Portland Chamber Music",
+        "startDate": "2025-09-20T19:00:00-07:00",
+        "location": {"@type":"Place","name":"The Old Church","address":"1422 SW 11th Ave, Portland, OR"}
+      },
+      {
+        "@type": "MusicEvent",
+        "name": "Seattle Debut",
+        "startDate": "2025-09-22T19:30:00-07:00",
+        "location": {"@type":"Place","name":"Benaroya Hall — Recital Studio","address":"200 University St, Seattle, WA"}
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    if(menuBtn){
+      menuBtn.addEventListener('click', () => {
+        const open = menu.style.display === 'flex';
+        menu.style.display = open ? 'none' : 'flex';
+        menuBtn.setAttribute('aria-expanded', String(!open));
+      });
+    }
+
+    // Lightbox for media gallery
+    const lightbox = document.getElementById('lightbox');
+    const gallery = document.getElementById('gallery');
+    if(gallery && lightbox){
+      gallery.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(!a) return;
+        e.preventDefault();
+        lightbox.querySelector('img').src = a.href;
+        lightbox.classList.add('show');
+      });
+      lightbox.addEventListener('click', () => lightbox.classList.remove('show'));
+    }
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple auto-rotate for press quotes (optional)
+    const slider = document.getElementById('pressSlider');
+    if(slider){
+      const items = Array.from(slider.children);
+      let idx = 0;
+      setInterval(() => {
+        items.forEach((el, i) => el.style.display = (i === idx ? 'block' : 'none'));
+        idx = (idx + 1) % items.length;
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
